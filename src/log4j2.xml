@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="HpSmTicketIntegration" packages="">
+  <Appenders>
+    <RollingFile name="logFile" fileName="logs/hpSmTicketIntegration.log"
+                 filePattern="logs/$${date:yyyy-MM}/hpSmTicketIntegration-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout charset="UTF-8">
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="250 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="60"/>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="logFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
